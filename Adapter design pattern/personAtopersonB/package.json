@@ -1,0 +1,18 @@
+{
+    "name": "adapter-pattern-example1",
+    "version": "1.0.0",
+    "description": "Example of Adapter Pattern implementation in TypeScript",
+    "main": "Main.ts",
+    "scripts": {
+        "start": "ts-node Main.ts"
+    },
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+        "ts-node": "^10.4.0",
+        "typescript": "^4.5.5"
+    }
+}
+    
+  
+  

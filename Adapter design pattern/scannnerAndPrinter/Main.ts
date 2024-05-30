@@ -1,0 +1,10 @@
+import { BasicPrinter } from './Printer';
+import { BasicScanner } from './Scanner';
+import { ScannerToPrinterAdapter } from './Adapter';
+import { Printer, Scanner } from './DeviceInterfaces';
+const printer: Printer = new BasicPrinter();
+const scanner: Scanner = new BasicScanner();
+printer.print("Hello, world!");
+console.log(scanner.scan());
+const adapter: Printer = new ScannerToPrinterAdapter(scanner);
+adapter.print("Scanned document");

@@ -1,11 +1,17 @@
-import { ChatAppMediator } from "./chat-app-mediator";
-import { User } from "./user";
+import { ChatRoomMediator } from "./ChatRoomMediator";
+import { User } from "./User";
 
-const chatAppMediator = new ChatAppMediator();
-const user1 = new User("Lightning", chatAppMediator);
-const user2 = new User("Doc", chatAppMediator);
-const user3 = new User("Mater", chatAppMediator);
+// Client code
+const chatRoom = new ChatRoomMediator();
 
-user1.publishMessage("Catchaw");
-user2.publishMessage("Ey kid");
-user3.publishMessage("Tomato");
+const alice = new User("Alice", chatRoom);
+const bob = new User("Bob", chatRoom);
+const charlie = new User("Charlie", chatRoom);
+
+alice.sendMessage("Hi Bob!");
+bob.sendMessage("Hello Alice! How are you?");
+alice.sendMessage("I'm good, thanks! How about you?");
+charlie.sendMessage("Hey everyone! What's up?");
+bob.sendMessage("Hi Charlie! We were just chatting.");
+alice.sendMessage("Hi Charlie! Welcome to the chat.");
+charlie.sendMessage("Thanks! It's great to be here.");

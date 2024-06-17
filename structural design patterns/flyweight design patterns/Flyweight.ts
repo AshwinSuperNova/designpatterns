@@ -1,18 +1,13 @@
-/**
- * The Flyweight class stores common state (intrinsic state) shared between multiple objects.
- * It accepts the unique state (extrinsic state) via its method parameters.
- */
-
+// The Flyweight class stores the shared state (sharedState), which is common across multiple objects. It also accepts the unique state (uniqueState) via its operation method to handle specific object data.
 export class Flyweight {
-    private sharedState: any;
+    private sharedState: string[];
 
-    constructor(sharedState: any) {
+    constructor(sharedState: string[]) {
         this.sharedState = sharedState;
     }
 
-    public operation(uniqueState: any): void {
-        const shared = JSON.stringify(this.sharedState);
-        const unique = JSON.stringify(uniqueState);
-        console.log(`Flyweight: Displaying shared (${shared}) and unique (${unique}) state.`);
+    public operation(uniqueState: string[]): void {
+        console.log(`Flyweight: Displaying shared ${JSON.stringify(this.sharedState)} and unique ${JSON.stringify(uniqueState)} state.`);
     }
 }
+

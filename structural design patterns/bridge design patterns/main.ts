@@ -1,13 +1,17 @@
-import { Red, Blue, Green } from "./color";
-import { Circle, Square, Triangle } from "./shape";
-import { ColoredShape } from "./colored-shapes";
+import { AdvancedRemoteControl } from "./AdvancedRemoteControl";
+import { Radio } from "./Radio";
+import { RemoteControl } from "./RemoteControl";
+import { TV } from "./TV";
 
-const redCircle = new ColoredShape(new Red(), new Circle());
-const blueSquare = new ColoredShape(new Blue(), new Square());
-const greenTriangle = new ColoredShape(new Green(), new Triangle());
-const blueTriangle = new ColoredShape(new Blue(), new Triangle());
+// Client code
+const tv = new TV();
+const radio = new Radio();
 
-redCircle.draw();
-blueSquare.draw();
-greenTriangle.draw();
-blueTriangle.draw();
+const remoteControl = new RemoteControl(tv);
+remoteControl.togglePower(); // TV is now ON.
+remoteControl.volumeUp(); // TV volume set to 60.
+
+const advancedRemoteControl = new AdvancedRemoteControl(radio);
+advancedRemoteControl.togglePower(); // Radio is now ON.
+advancedRemoteControl.volumeUp(); // Radio volume set to 40.
+advancedRemoteControl.mute(); // Device is muted.

@@ -1,8 +1,15 @@
-import { City, Industry, SightSeeing, Node } from "./node";
-import { ExportVisitor } from "./export-visitor";
+import { Elephant } from "./Elephant";
+import { FeedingVisitor } from "./FeedingVisitor";
+import { Lion } from "./Lion";
+import { Monkey } from "./Monkey";
 
-const graph: Node[] = [new City(), new Industry(), new SightSeeing()];
+// Client code
+const lion = new Lion();
+const elephant = new Elephant();
+const monkey = new Monkey();
 
-const xmlExportVisitor = new ExportVisitor();
+const feedingVisitor = new FeedingVisitor();
 
-graph.forEach((node) => node.accept(xmlExportVisitor));
+lion.accept(feedingVisitor);
+elephant.accept(feedingVisitor);
+monkey.accept(feedingVisitor);

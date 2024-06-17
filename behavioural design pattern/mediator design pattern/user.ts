@@ -1,15 +1,27 @@
-import { Mediator } from "./mediator";
+import { ChatRoom } from "./ChatRoom";
+
+// User class
 
 export class User {
-  constructor(public name: string, private mediator: Mediator) {
-    this.mediator.notify(this, "subscribe");
-  }
+    private name: string;
+    private mediator: ChatRoom;
 
-  receiveMessage(message: string) {
-    console.log(`Message received by ${this.name}: ${message}`);
-  }
+    constructor(name: string, mediator: ChatRoom) {
+        this.name = name;
+        this.mediator = mediator;
+        this.mediator.addUser(this);
+    }
 
-  publishMessage(message: string) {
-    this.mediator.notify(this, "publish", message);
-  }
+    public getName(): string {
+        return this.name;
+    }
+
+    public sendMessage(message: string): void {
+        console.log(`${this.name} sends: ${message}`);
+        this.mediator.showMessage(this, message);
+    }
+
+    public receiveMessage(sender: string, message: string): void {
+        console.log(`${this.name} receives from ${sender}: ${message}`);
+    }
 }

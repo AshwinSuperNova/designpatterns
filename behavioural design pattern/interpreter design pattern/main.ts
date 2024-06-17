@@ -1,42 +1,19 @@
-import { TerminalExpression } from "./terminal-expression";
-import { OrExpression } from "./or-expression";
-import { AndExpression } from "./and-expression";
+import { AddExpression } from "./AddExpression";
+import { NumberExpression } from "./NumberExpression";
+import { SubtractExpression } from "./SubtractExpression";
 
-// Terminal expressions
-const isJava = new TerminalExpression("Java");
-const isJavaScript = new TerminalExpression("JavaScript");
-const isPython = new TerminalExpression("Python");
-const isCSharp = new TerminalExpression("C#");
+// Client code
+const five = new NumberExpression(5);
+const three = new NumberExpression(3);
+const two = new NumberExpression(2);
 
-// Composite expressions
-const isProgrammingLanguage = new OrExpression(
-  new OrExpression(isJava, isJavaScript),
-  new OrExpression(isPython, isCSharp)
-);
+const addExpression = new AddExpression(five, three);
+const subtractExpression = new SubtractExpression(addExpression, two);
+console.log(`Result of "5 + 3": ${addExpression.interpret()}`); // Output: 8
+console.log(`Resultof "8 -2 ": ${subtractExpression.interpret()}`); // Output: 6
 
-const isJavaAndJavaScript = new AndExpression(isJava, isJavaScript);
-const isPythonAndCSharp = new AndExpression(isPython, isCSharp);
+// Additional Client code to demonstrate more complex expressions
+const ten = new NumberExpression(10);
+const addExpression2 = new AddExpression(ten, subtractExpression); // (10 + (5 + 3) - 2)
+console.log(`Result "10 + 6": ${addExpression2.interpret()}`); // Output: 16
 
-// Different contexts
-const contexts = [
-  "Java",
-  "Python",
-  "JavaScript",
-  "C#",
-  "Ruby",
-  "JavaScript and Java",
-  "Python and C#",
-  "C++",
-  "Java and JavaScript",
-  "Python and JavaScript",
-];
-
-// Interpret each context
-contexts.forEach((context) => {
-  console.log(`"${context}" is a programming language? ${isProgrammingLanguage.interpret(context)}`);
-});
-
-console.log("");
-
-console.log(`"Java and JavaScript" contains both Java and JavaScript? ${isJavaAndJavaScript.interpret("Java and JavaScript")}`);
-console.log(`"Python and C#" contains both Python and C#? ${isPythonAndCSharp.interpret("Python and C#")}`);

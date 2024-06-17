@@ -1,6 +1,6 @@
 import { Graphic } from "./Graphic";
 
-// Leaf class: Circle
+// Leaf class: Circle and Square are leaf classes that implement the Graphic interface. Each has its own implementation of the draw method.
 export class Circle implements Graphic {
     constructor(private radius: number) { }
 

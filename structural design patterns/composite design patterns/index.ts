@@ -18,7 +18,13 @@ import { Square } from "./Square";
   const drawing2 = new Drawing();
   drawing2.add(drawing1);
   drawing2.add(circle2);
-  
+
   // Draw everything
   drawing2.draw();
-  
+  const circle3 = new Circle(15);
+  const square3 = new Square(20);
+  const drawing3 = new Drawing();
+  drawing3.add(drawing2);
+  drawing3.add(circle3);
+  drawing3.add(square3);
+  drawing3.draw();

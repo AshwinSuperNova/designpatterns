@@ -1,20 +1,19 @@
-import { WordsCollection } from "./words-collection";
+import { Book } from "./Book";
+import { BookCollection } from "./BookCollection";
 
-const collection = new WordsCollection();
-collection.addItem("Apple");
-collection.addItem("Banana");
-collection.addItem("Cherry");
+// Client code
+const book1 = new Book("The Catcher in the Rye");
+const book2 = new Book("To Kill a Mockingbird");
+const book3 = new Book("1984");
 
-const iterator = collection.getIterator();
+const bookCollection = new BookCollection();
+bookCollection.addBook(book1);
+bookCollection.addBook(book2);
+bookCollection.addBook(book3);
 
-console.log("Straight traversal:");
-while (iterator.valid()) {
-  console.log(iterator.next());
-}
+const iterator = bookCollection.createIterator();
 
-console.log("");
-console.log("Reverse traversal:");
-const reverseIterator = collection.getReverseIterator();
-while (reverseIterator.valid()) {
-  console.log(reverseIterator.next());
+while (iterator.hasNext()) {
+    const book = iterator.next();
+    console.log(book.getTitle());
 }

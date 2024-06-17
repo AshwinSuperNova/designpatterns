@@ -1,8 +1,5 @@
+// Iterator interface
 export interface Iterator<T> {
-    current(): T;
-    next(): T;
-    key(): number;
-    valid(): boolean;
-    rewind(): void;
-  }
-  
+  hasNext(): boolean;
+  next(): T;
+}

@@ -1,4 +1,4 @@
+// AbstractExpression interface
 export interface Expression {
-    interpret(context: string): boolean;
-  }
-  
+  interpret(): number;
+}

@@ -1,4 +1,7 @@
 Definition
-The Proxy design pattern provides a surrogate or placeholder for another object to control access to it. This pattern is used to create a representative object that controls access to another object, which may be remote, expensive to create, or require secure access.
-Scenario
-Imagine you are developing a weather application that fetches weather forecasts from an external weather service. Fetching the forecast can be time-consuming and resource-intensive. To optimize this, you can use the Proxy pattern to cache the weather forecast for 24 hours, so repeated requests within this period return the cached data instead of making a new request to the real weather service.
+The Proxy design pattern is a structural design pattern that provides an object that acts as a substitute for a real service object used by a client. A proxy controls access to the original object, allowing you to perform something either before or after the request gets to the original object.
+
+Scenario: Image Viewer
+Imagine you are developing an image viewer application that allows users to view, resize, and get the dimensions of images. Loading high-resolution images can be resource-intensive and time-consuming, especially if you have a large number of images. Additionally, you might want to defer loading these images and performing operations on them until they are actually needed by the user.
+
+To address this, you can use the Proxy design pattern to manage these images efficiently.

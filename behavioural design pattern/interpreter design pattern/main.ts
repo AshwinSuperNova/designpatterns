@@ -1,17 +1,19 @@
-import { InterpreterContext } from "./InterpreterContext";
-import { parseExpression } from "./parseExpression";
+import { AddExpression } from "./AddExpression";
+import { NumberExpression } from "./NumberExpression";
+import { SubtractExpression } from "./SubtractExpression";
 
-const expression1 = "3 + 5";
-const parsedExpression1 = parseExpression(expression1);
-const context1 = new InterpreterContext(parsedExpression1);
-console.log(`${expression1} = ${context1.interpret()}`); // Output: 3 + 5 = 8
+// Client code
+const five = new NumberExpression(5);
+const three = new NumberExpression(3);
+const two = new NumberExpression(2);
 
-const expression2 = "10 - 2 + 3";
-const parsedExpression2 = parseExpression(expression2);
-const context2 = new InterpreterContext(parsedExpression2);
-console.log(`${expression2} = ${context2.interpret()}`); // Output: 10 - 2 + 3 = 11
+const addExpression = new AddExpression(five, three);
+const subtractExpression = new SubtractExpression(addExpression, two);
+console.log(`Result of "5 + 3": ${addExpression.interpret()}`); // Output: 8
+console.log(`Resultof "8 -2 ": ${subtractExpression.interpret()}`); // Output: 6
 
-const expression3 = "10 + 2 - 3";
-const parsedExpression3 = parseExpression(expression3);
-const context3 = new InterpreterContext(parsedExpression3);
-console.log(`${expression3} = ${context3.interpret()}`); // Output: 10 + 2 - 3 = 9
+// Additional Client code to demonstrate more complex expressions
+const ten = new NumberExpression(10);
+const addExpression2 = new AddExpression(ten, subtractExpression); // (10 + (5 + 3) - 2)
+console.log(`Result "10 + 6": ${addExpression2.interpret()}`); // Output: 16
+

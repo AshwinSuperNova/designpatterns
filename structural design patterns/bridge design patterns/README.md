@@ -1,5 +1,5 @@
 Definition
-The Bridge design pattern is used to decouple an abstraction from its implementation so that the two can vary independently. This pattern involves an interface that acts as a bridge, which makes the functionality of concrete classes independent from interface implementer classes. Both types of classes can be altered structurally without affecting each other.
+The Bridge design pattern is a structural design pattern that decouples an abstraction from its implementation, allowing the two to vary independently. It helps to split a large class or a set of closely related classes into two separate hierarchies—abstraction and implementation—which can be developed independently.
 
-Real-Life Scenario
-Imagine you are developing a graphic application that can draw shapes with various colors. You need to be able to draw shapes like circles, squares, and triangles in multiple colors like red, blue, and green. Instead of creating multiple subclasses for every possible combination of shapes and colors, you can use the Bridge pattern to separate the shape and color into distinct class hierarchies.
+Scenario: Remote Control and Devices
+Imagine you are developing a universal remote control that can control various devices like TVs and Radios. The remote control should be able to turn the devices on and off, and the implementation details for controlling each device might differ. The Bridge design pattern can help you achieve this by separating the abstraction (remote control) from the implementation (devices).

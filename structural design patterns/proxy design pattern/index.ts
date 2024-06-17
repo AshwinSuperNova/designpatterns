@@ -1,25 +1,32 @@
-import { ProxyWeatherService } from "./ProxyWeatherService";
-import { RealWeatherService } from "./RealWeatherService";
-import { WeatherService } from "./WeatherService";
+import { ProxyImage } from "./ProxyImage";
 
-async function clientCode(weatherService: WeatherService) {
-    for (let i = 0; i < 3; i++) {
-        const forecast = await weatherService.getForecast();
-        console.log(`Weather forecast: ${forecast.avgTemperature.toFixed(2)}ºC average temperature, ${forecast.maxPrecipitationProbability.toFixed(2)}% max precipitation probability.`);
-    }
+// Subject Interface
+export interface Image {
+    display(): void;
+    getDimensions(): { width: number; height: number };
+    resize(width: number, height: number): void;
 }
 
-async function main() {
-    const realService = new RealWeatherService();
-    const proxyService = new ProxyWeatherService(realService);
+ // Client code
+const image1 = new ProxyImage("image1.jpg", 1024, 768);
+const image2 = new ProxyImage("image2.png", 800, 600);
 
-    console.log('Client: Using real weather service:');
-    await clientCode(realService);
+// Images will be loaded from disk and displayed on demand
+image1.display(); // Output: Loading image1.jpg \n Displaying image1.jpg [1024x768]
+image2.display(); // Output: Loading image2.png \n Displaying image2.png [800x600]
 
-    console.log('');
+// Subsequent calls to display will not reload the images from disk
+image1.display(); // Output: Displaying image1.jpg [1024x768]
+image2.display(); // Output: Displaying image2.png [800x600]
 
-    console.log('Client: Using proxy weather service:');
-    await clientCode(proxyService);
-}
+// Get dimensions of images
+console.log(image1.getDimensions()); // Output: { width: 1024, height: 768 }
+console.log(image2.getDimensions()); // Output: { width: 800, height: 600 }
 
-main();
+// Resize images
+image1.resize(1280, 720); // Output: Resizing image1.jpg to [1280x720]
+image2.resize(1920, 1080); // Output: Resizing image2.png to [1920x1080]
+
+// Display resized images
+image1.display(); // Output: Displaying image1.jpg [1280x720]
+image2.display(); // Output: Displaying image2.png [1920x1080]export 

@@ -1,12 +1,9 @@
-import { DocDataMiner } from "./doc-data-miner";
-import { CSVDataMiner } from "./csv-data-miner";
-import { PDFDataMiner } from "./pdf-data-miner";
+import { CSVDataProcessor } from "./CSVDataProcessor";
+import { JSONDataProcessor } from "./JSONDataProcessor";
 
 // Client code
-const docDataMiner = new DocDataMiner();
-const csvDataMiner = new CSVDataMiner();
-const pdfDataMiner = new PDFDataMiner();
+const csvProcessor = new CSVDataProcessor();
+csvProcessor.process();
 
-docDataMiner.mine("data.doc");
-csvDataMiner.mine("data.csv");
-pdfDataMiner.mine("data.pdf");
+const jsonProcessor = new JSONDataProcessor();
+jsonProcessor.process();

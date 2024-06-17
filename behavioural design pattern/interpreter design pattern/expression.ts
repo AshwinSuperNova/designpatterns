@@ -1,4 +1,4 @@
-// AbstractExpression interface
+// Abstract Expression
 export interface Expression {
   interpret(): number;
 }

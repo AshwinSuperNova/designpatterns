@@ -1,16 +1,16 @@
 import { Expression } from "./Expression";
 
-// AddExpression class (Non-terminal Expression)
+// Nonterminal Expression: Addition
 export class AddExpression implements Expression {
-  private leftExpression: Expression;
-  private rightExpression: Expression;
+  private left: Expression;
+  private right: Expression;
 
   constructor(left: Expression, right: Expression) {
-      this.leftExpression = left;
-      this.rightExpression = right;
+    this.left = left;
+    this.right = right;
   }
 
-  public interpret(): number {
-      return this.leftExpression.interpret() + this.rightExpression.interpret();
+  interpret(): number {
+    return this.left.interpret() + this.right.interpret();
   }
 }

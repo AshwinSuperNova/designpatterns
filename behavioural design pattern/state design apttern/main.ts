@@ -1,9 +1,9 @@
-import { Document } from "./document";
+import { TrafficLight } from "./TrafficLight";
 
-const document = new Document();
+// Client code
+const trafficLight = new TrafficLight();
 
-document.render();
-document.publish();
-document.publish();
-document.render();
-document.publish();
+trafficLight.change(); // Output: Red Light - Stop
+trafficLight.change(); // Output: Green Light - Go
+trafficLight.change(); // Output: Yellow Light - Slow down
+trafficLight.change(); // Output: Red Light - Stop

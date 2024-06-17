@@ -11,8 +11,8 @@ export class Snapshot implements Memento {
     return this.name;
   }
 
-  public getSnapshotDate(): Date {
-    return this.date;
+  public getSnapshotDate(): string {
+    return this.date.toLocaleDateString();
   }
 
   public getText(): string {

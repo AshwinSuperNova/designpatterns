@@ -1,5 +1,5 @@
 Definition
-The Chain of Responsibility design pattern allows an object to pass a request along a chain of potential handlers until the request is handled. This pattern decouples the sender and receiver of the request, giving multiple objects a chance to handle the request.
+The Command design pattern is a behavioral design pattern that turns a request into a stand-alone object that contains all information about the request. This transformation lets you parameterize methods with different requests, delay or queue a request’s execution, and support undoable operations.
 
-Scenario: Handling Food Requests
-Imagine a zoo where different animals have specific preferences for food. A monkey likes bananas, a squirrel likes nuts, and a dog likes meatballs. When a food item is offered, it should be passed to the appropriate animal handler. If an animal doesn't want the food, it passes the food request to the next animal in the chain.
+Scenario: Remote Control for Home Appliances
+Imagine you are developing a remote control system for home appliances like lights and fans. The remote control can send commands to turn the appliances on and off. Using the Command design pattern, you can encapsulate each request as an object, allowing you to parameterize the remote control with different commands and execute them as needed.

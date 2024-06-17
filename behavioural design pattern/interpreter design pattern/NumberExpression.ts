@@ -1,6 +1,6 @@
 import { Expression } from "./Expression";
 
-// NumberExpression class (Terminal Expression)
+// Terminal Expression
 export class NumberExpression implements Expression {
   private number: number;
 
@@ -8,7 +8,7 @@ export class NumberExpression implements Expression {
     this.number = number;
   }
 
-  public interpret(): number {
+  interpret(): number {
     return this.number;
   }
 }

@@ -1,0 +1,4 @@
+The Decorator design pattern allows behavior to be added to individual objects, dynamically, without affecting the behavior of other objects from the same class. Decorators provide a flexible alternative to subclassing for extending functionality.
+
+Real-Life Scenario
+Imagine you have a notification system where you need to send alerts via email, SMS, Facebook, and Slack. You start with a basic email notification system and later need to add other types of notifications. Using the Decorator pattern, you can add these additional notification methods dynamically, without altering the existing code.

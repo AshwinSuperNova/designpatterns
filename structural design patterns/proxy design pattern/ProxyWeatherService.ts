@@ -1,12 +1,7 @@
+// ProxyWeatherService.ts
 import { WeatherForecast } from "./WeatherForecast";
 import { WeatherService } from "./WeatherService";
 
-/**
- * The ProxyWeatherService implements the same interface as the real service. However,
- * the proxy uses an internal cache to store responses. Subsequent calls to the
- * proxied service will go faster as they won't call the real slow service. The
- * proxy also logs useful information about the cache usage and timings.
- */
 export class ProxyWeatherService implements WeatherService {
     private cachedForecast?: WeatherForecast;
     private cacheDate?: Date;
@@ -15,16 +10,13 @@ export class ProxyWeatherService implements WeatherService {
     constructor(private realWeatherService: WeatherService) { }
 
     public async getForecast(): Promise<WeatherForecast> {
-        console.log(`Requesting forecast on ${new Date().toISOString()}.`);
-        const startTime = Date.now();
-
         if (this.isCacheExpired()) {
             console.log('Cache expired. Fetching new forecast...');
             this.updateCache(await this.realWeatherService.getForecast());
+        } else {
+            console.log('Using cached forecast.');
         }
 
-        const elapsedTime = Date.now() - startTime;
-        console.log(`Request processed in ${elapsedTime} milliseconds`);
         return this.cachedForecast!;
     }
 

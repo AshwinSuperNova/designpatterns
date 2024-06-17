@@ -8,7 +8,7 @@ class PrototypeDemo {
 
         const cloneFactory = new CloneFactory();
         const clonedSheep = cloneFactory.getClone(originalSheep) as Sheep;
-        clonedSheep.name = 'Mini';
+        clonedSheep.name = 'Brolly';
         clonedSheep.description();
     }
 }
